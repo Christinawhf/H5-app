@@ -1,5 +1,11 @@
 <template>
   <div id="publish">
+    <div>
+                    <textarea placeholder="为了世界和平，我要爆个料" style="width:85%; border:solid 1px #d8d8d8; border-radius:3px; font-size:14px; padding:10px;" rows="3" maxlength="50" @input="descInput"
+                              v-model="desc"></textarea>
+      <p class="pay-service-textarea-text"><span>{{remnant}}</span>/50</p>
+
+    </div>
     <mt-popup
       v-model="remind">
       分享到朋友圈
@@ -18,10 +24,16 @@ export default {
   data () {
     return {
       topic:'话题在这儿',
-      remind:false
+      remind:false,
+      remnant: 0,
+      desc:""
     }
   },
   methods:{
+    descInput(){
+      var txtVal = this.desc.length;
+      this.remnant =txtVal;
+    },
     reminding:function () {
       this.remind=true;
       var that=this;
@@ -37,6 +49,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  .pay-service-textarea-text{
+    position:absolute;
+    margin-top: -1.88rem;
+    margin-left: 1.5rem;
+  }
   .mint-popup {
     color: #fff;
     background-color: transparent;
@@ -48,7 +65,6 @@ export default {
   }
   .mint-button--default {
     background-color: #656b79;
-    /*box-shadow: 0 0 1px #656b79;*/
   }
   .mint-button {
     -webkit-appearance: none;

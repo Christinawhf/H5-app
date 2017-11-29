@@ -1,5 +1,8 @@
 <template>
   <div id="app">
+    <div class="bgimg">
+      <img src="../src/assets/cooperation.png" style="width: 100%;height: 100%">
+    </div>
     <toptitle></toptitle>
     <div class="content-div">
       <router-view/>
@@ -149,4 +152,11 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+  .bgimg{
+    width: 100%;
+    height: 87%;
+    z-index: -1;
+    margin-top: -4%;
+    position: absolute;
+  }
 </style>
